@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10172a">
+<title>LexiLearn — English Practice</title>
+<style>
+:root{--bg:#f4f6fb;--panel:#fff;--ink:#172033;--muted:#718096;--line:#e5eaf2;--purple:#6d5ce8;--purple2:#8a7cff;--mint:#dff8ed;--green:#14845d;--orange:#fff0d9;--red:#d64a5b;--shadow:0 16px 45px #2634520c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;transition:transform .16s,background .16s,box-shadow .16s}button:active{transform:scale(.98)}.app{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{background:#11182b;color:#dce3f5;padding:25px 17px;display:flex;flex-direction:column;gap:25px;position:sticky;top:0;height:100vh}.brand{display:flex;gap:11px;align-items:center;padding:0 8px}.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#8d7cff,#5d4ce2);display:grid;place-items:center;color:white;font-size:22px;font-weight:900;box-shadow:0 8px 20px #6957e655}.brand-name{font-size:19px;font-weight:850;letter-spacing:-.6px;color:white}.brand-sub{font-size:11px;color:#9ca9c7;margin-top:-3px}.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.6px;color:#7986a6;padding:0 12px;margin-bottom:5px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aab5cf;text-align:left;padding:12px 13px;border-radius:12px;display:flex;gap:12px;align-items:center;font-weight:650}.nav button .ico{width:20px;text-align:center;font-size:17px}.nav button:hover,.nav button.active{background:#272f4b;color:#fff}.nav button.active{box-shadow:inset 3px 0 #9184ff}.side-bottom{margin-top:auto;background:#1c2540;border:1px solid #2c3655;padding:16px;border-radius:17px}.side-bottom strong{display:block;color:white;margin-bottom:4px}.side-bottom p{color:#9daaca;font-size:12px;margin:0 0 13px}.mini-progress{height:6px;background:#303b5d;border-radius:10px;overflow:hidden}.mini-progress span{display:block;height:100%;background:#8d7cff;border-radius:10px}.side-foot{font-size:11px;color:#7180a3;padding:0 8px}.main{min-width:0;padding:30px clamp(18px,4vw,52px) 55px;max-width:1600px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.eyebrow{color:var(--purple);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:850}.page-title{font-size:clamp(25px,3vw,35px);letter-spacing:-1.3px;margin:3px 0 0;line-height:1.18}.top-actions{display:flex;align-items:center;gap:10px}.streak-pill,.profile-pill{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:13px;font-weight:750}.avatar{background:#ece8ff;color:#5949ca;width:31px;height:31px;border-radius:10px;display:grid;place-items:center;font-weight:850}.mobile-menu{display:none}.hero{background:linear-gradient(120deg,#5d4be0,#7b6bf4 65%,#a39aff);border-radius:25px;padding:clamp(23px,4vw,38px);color:white;position:relative;overflow:hidden;box-shadow:0 20px 40px #7665ed25;display:grid;grid-template-columns:1.4fr .6fr;gap:20px;min-height:245px}.hero:after{content:"";position:absolute;width:280px;height:280px;border:1px solid #ffffff28;border-radius:50%;right:-60px;top:-90px;box-shadow:0 0 0 32px #ffffff0c,0 0 0 65px #ffffff09}.hero h2{font-size:clamp(27px,3.2vw,39px);letter-spacing:-1.3px;line-height:1.13;margin:8px 0 12px;max-width:510px}.hero p{color:#e3e0ff;max-width:490px;margin:0 0 23px}.hero .eyebrow{color:#dcd7ff}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn-white{background:white;color:#5141ce;box-shadow:0 7px 18px #2c21932b}.btn-primary{background:var(--purple);color:#fff;box-shadow:0 7px 18px #6d5ce82b}.btn-primary:hover{background:#5948d6}.btn-light{background:#f1efff;color:#5949ce}.btn-outline{background:#fff;border:1px solid var(--line);color:#374258}.hero-art{display:grid;place-items:center;position:relative;z-index:1}.book-stack{width:155px;height:145px;position:relative;transform:rotate(-7deg)}.book{position:absolute;width:126px;height:91px;border-radius:15px;box-shadow:0 12px 25px #33239a33;border:2px solid #ffffff55}.book.one{background:#fce8a8;left:5px;top:38px;transform:rotate(12deg)}.book.two{background:#b7f1dc;left:17px;top:23px;transform:rotate(3deg)}.book.three{background:#fff;left:24px;top:8px;transform:rotate(-7deg);display:grid;place-items:center;color:#6755dc;font-size:42px;font-weight:900}.spark{position:absolute;color:#fff5a9;font-size:25px}.spark.s1{top:2px;right:7px}.spark.s2{bottom:0;left:2px;font-size:19px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:22px 0 34px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow);min-width:0}.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:750}.stat-icon{width:35px;height:35px;display:grid;place-items:center;border-radius:11px;background:#f0edff;font-size:17px}.stat-value{font-size:27px;font-weight:850;letter-spacing:-.8px;margin-top:9px}.stat-note{font-size:11px;color:var(--muted)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 16px}.section-head h2{font-size:21px;letter-spacing:-.5px;margin:0}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}.text-btn{border:0;background:transparent;color:var(--purple);font-weight:800;padding:7px}.continue-card{display:grid;grid-template-columns:1fr auto;gap:15px;align-items:center;background:#fff;border:1px solid var(--line);padding:19px 21px;border-radius:19px;margin-bottom:33px}.continue-left{display:flex;align-items:center;gap:14px}.lesson-icon{width:52px;height:52px;border-radius:15px;background:#e6f8f0;color:#18825c;display:grid;place-items:center;font-size:23px}.continue-card h3{margin:0;font-size:15px}.continue-card p{margin:3px 0 0;color:var(--muted);font-size:12px}.course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.course{background:#fff;border:1px solid var(--line);border-radius:19px;padding:18px;transition:transform .2s,box-shadow .2s;min-width:0}.course:hover{transform:translateY(-3px);box-shadow:0 16px 35px #26345212}.course-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.course-emoji{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:#f0edff}.level{font-size:10px;font-weight:850;padding:5px 8px;border-radius:8px;background:#f3f5f9;color:#6b758b}.course h3{font-size:16px;margin:0 0 5px}.course p{font-size:12px;color:var(--muted);margin:0 0 16px;min-height:37px}.course-meta{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--muted);margin-bottom:10px}.progress{height:6px;background:#edf0f6;border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#6e5ce8,#9c8eff)}.course-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:14px}.course-bottom strong{font-size:12px}.small-arrow{border:0;background:#f1efff;color:#6655dd;width:33px;height:33px;border-radius:10px;font-weight:900}.view{display:none;animation:fade .25s ease}.view.active{display:block}@keyframes fade{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}.filters{display:flex;flex-wrap:wrap;gap:9px;margin:19px 0}.filter-btn{background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 13px;color:#637087;font-size:12px;font-weight:750}.filter-btn.active{background:#ece9ff;color:#5d4bd9;border-color:#d9d3ff}.search-row{display:flex;gap:10px;align-items:center;margin-top:15px}.searchbox{flex:1;position:relative}.searchbox input{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 40px;background:white;outline:none}.searchbox:before{content:"⌕";position:absolute;left:14px;top:5px;font-size:23px;color:#8a95aa}.select{border:1px solid var(--line);background:white;padding:12px;border-radius:12px;color:#59657b}.exam-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.exam-card{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;min-height:190px}.exam-card .exam-number{font-size:10px;color:#8c95a8;font-weight:850;letter-spacing:1px}.exam-card h3{font-size:15px;margin:7px 0 5px}.exam-card p{color:var(--muted);font-size:12px;margin:0 0 13px;flex:1}.exam-card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}.tag{font-size:10px;font-weight:800;background:#f2f4f8;color:#68738a;padding:5px 7px;border-radius:7px}.empty{text-align:center;padding:50px 15px;color:var(--muted);grid-column:1/-1}.quiz-shell{max-width:850px;margin:auto}.quiz-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.quiz-progress{height:7px;background:#e6eaf2;border-radius:20px;overflow:hidden;margin:0 0 24px}.quiz-progress span{height:100%;display:block;background:linear-gradient(90deg,#6d5ce8,#a398ff);transition:width .3s}.quiz-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:clamp(22px,4vw,38px);box-shadow:var(--shadow)}.question-meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:12px;font-weight:750}.question-card h2{font-size:clamp(22px,3vw,30px);letter-spacing:-.7px;margin:15px 0 8px;line-height:1.25}.question-hint{color:var(--muted);margin:0 0 23px;font-size:14px}.answers{display:grid;gap:11px}.answer{width:100%;text-align:left;border:1px solid #e4e8f1;background:#fff;padding:15px 16px;border-radius:13px;color:#273248;display:flex;align-items:center;gap:12px;font-weight:650}.answer:hover{border-color:#b7afff;background:#fbfaff}.answer .letter{width:29px;height:29px;border-radius:9px;background:#f2f4f8;color:#737f95;display:grid;place-items:center;font-size:12px;flex-shrink:0}.answer.selected{border-color:var(--purple);background:#f4f2ff}.answer.correct{border-color:#54c99a;background:#effbf5}.answer.wrong{border-color:#f2a0aa;background:#fff2f3}.answer.correct .letter{background:#d4f5e5;color:#12835b}.answer.wrong .letter{background:#ffe0e3;color:#c33348}.text-answer{width:100%;border:1px solid var(--line);border-radius:13px;padding:15px;outline:none}.text-answer:focus{border-color:#9184ff;box-shadow:0 0 0 3px #8c7cff20}.feedback{display:none;padding:13px 15px;border-radius:12px;margin-top:17px;font-size:13px}.feedback.show{display:block}.feedback.good{background:#e9faf2;color:#16734f}.feedback.bad{background:#fff0f1;color:#b53446}.quiz-controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:23px}.muted{color:var(--muted)}.result{text-align:center;padding:12px 0 3px}.result-ring{width:130px;height:130px;border-radius:50%;background:conic-gradient(#6d5ce8 var(--score),#eeeafb 0);display:grid;place-items:center;margin:0 auto 20px;position:relative}.result-ring:before{content:"";position:absolute;inset:10px;background:white;border-radius:50%}.result-ring strong{position:relative;font-size:31px;letter-spacing:-1px}.result h2{font-size:28px;margin:0 0 6px}.result p{color:var(--muted);margin:0 auto 20px;max-width:440px}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.review-list{text-align:left;margin-top:27px;border-top:1px solid var(--line);padding-top:18px}.review-item{padding:13px 0;border-bottom:1px solid #edf0f5;font-size:13px}.review-item strong{display:block;margin-bottom:4px}.review-item .correct-text{color:#14845d}.review-item .wrong-text{color:#c53c4d}.dashboard-bottom{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:30px}.panel{background:white;border:1px solid var(--line);border-radius:19px;padding:20px}.panel h3{margin:0;font-size:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.activity-bars{height:130px;display:flex;align-items:end;gap:clamp(7px,1.5vw,16px);padding:0 4px}.bar-col{flex:1;display:flex;align-items:center;flex-direction:column;gap:8px;height:100%;justify-content:end}.bar{width:min(100%,27px);border-radius:7px 7px 3px 3px;background:#dcd7ff;min-height:4px;transition:height .4s}.bar.today{background:linear-gradient(#9b8eff,#6957e6)}.bar-label{font-size:10px;color:#8993a7}.skill-row{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;margin:15px 0}.skill-icon{width:34px;height:34px;border-radius:10px;background:#f0edff;display:grid;place-items:center}.skill-info strong{font-size:12px;display:block}.skill-info .progress{margin-top:6px}.skill-pct{font-size:12px;font-weight:800}.setting-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:15px}.setting-card h3{margin:0 0 5px}.setting-card p{font-size:13px;color:var(--muted);margin:0 0 15px}.setting-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 0;border-top:1px solid #edf0f5}.setting-row:first-of-type{border-top:0}.setting-row strong{font-size:13px;display:block}.setting-row small{color:var(--muted)}.setting-row input{padding:9px 10px;border:1px solid var(--line);border-radius:9px;max-width:210px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#172033;color:white;padding:12px 18px;border-radius:12px;box-shadow:0 10px 30px #11182733;opacity:0;pointer-events:none;transition:.25s;z-index:20;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}footer{color:#98a1b3;font-size:11px;text-align:center;margin-top:35px}.mobile-nav{display:none}
+@media(max-width:1100px){.course-grid,.exam-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr .45fr}.dashboard-bottom{grid-template-columns:1fr}}
+@media(max-width:760px){.app{display:block}.sidebar{display:none}.main{padding:20px 15px 88px}.topbar{margin-bottom:20px}.page-title{font-size:26px}.streak-pill{padding:8px 10px}.profile-pill{padding:5px}.profile-name{display:none}.hero{grid-template-columns:1fr;min-height:0;padding:24px;border-radius:21px}.hero-art{display:none}.hero h2{font-size:29px}.stats{gap:9px;margin:15px 0 26px}.stat{padding:13px;border-radius:15px}.stat-value{font-size:24px}.stat-icon{width:30px;height:30px}.course-grid,.exam-grid{grid-template-columns:1fr}.course{padding:16px}.course p{min-height:0}.continue-card{padding:15px;grid-template-columns:1fr}.continue-card .btn{width:100%}.section-head{align-items:center}.section-head h2{font-size:19px}.mobile-nav{display:flex;position:fixed;z-index:15;bottom:0;left:0;right:0;background:#11182b;padding:9px 7px calc(9px + env(safe-area-inset-bottom));justify-content:space-around;box-shadow:0 -8px 30px #17203320}.mobile-nav button{background:transparent;border:0;color:#9ba7c5;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;padding:3px 10px}.mobile-nav button span{font-size:19px}.mobile-nav button.active{color:#c6bdff}.search-row{flex-direction:column;align-items:stretch}.quiz-card{padding:20px;border-radius:18px}.quiz-top{align-items:start}.quiz-controls .btn{padding:11px 12px}.question-card h2{font-size:23px}.answer{padding:12px}.dashboard-bottom{gap:12px}.panel{padding:16px}.top-actions{gap:6px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">L</div><div><div class="brand-name">LexiLearn</div><div class="brand-sub">English, made clearer.</div></div></div>
+  <div><div class="nav-label">Workspace</div><nav class="nav" id="sideNav">
+    <button class="active" data-view="dashboard"><span class="ico">⌂</span>Dashboard</button>
+    <button data-view="exams"><span class="ico">▤</span>Explore exams</button>
+    <button data-view="progress"><span class="ico">◷</span>My progress</button>
+    <button data-view="saved"><span class="ico">♡</span>Saved exams</button>
+  </nav></div>
+  <div><div class="nav-label">Your learning</div><nav class="nav">
+    <button data-view="exams" data-filter="Vocabulary"><span class="ico">✧</span>Vocabulary</button>
+    <button data-view="exams" data-filter="Grammar"><span class="ico">⌘</span>Grammar</button>
+    <button data-view="exams" data-filter="Spelling"><span class="ico">✎</span>Spelling</button>
+    <button data-view="exams" data-filter="Reading"><span class="ico">▣</span>Reading</button>
+  </nav></div>
+  <div class="side-bottom"><strong>Small steps count.</strong><p>Ten focused minutes can beat an hour of distracted scrolling.</p><div class="mini-progress"><span id="sideProgress" style="width:0%"></span></div></div>
+  <div class="side-foot">Made for curious minds · Works offline</div>
+</aside>
+<main class="main">
+<header class="topbar"><div><div class="eyebrow" id="greeting">YOUR LEARNING SPACE</div><h1 class="page-title" id="pageTitle">Good evening, learner.</h1></div><div class="top-actions"><div class="streak-pill">🔥 <span id="streakTop">0</span><span class="muted">day streak</span></div><div class="profile-pill"><div class="avatar" id="avatar">L</div><span class="profile-name" id="profileName">Learner</span></div></div></header>
+<section class="view active" id="view-dashboard">
+  <div class="hero"><div><div class="eyebrow">YOUR NEXT LEVEL STARTS HERE</div><h2>Make English your strongest skill.</h2><p>Practice a little, learn something real, and watch your confidence grow. No pressure, just progress.</p><button class="btn btn-white" onclick="startExam(1)">Start a quick exam <span>↗</span></button></div><div class="hero-art" aria-hidden="true"><div class="book-stack"><div class="book one"></div><div class="book two"></div><div class="book three">Aa</div><span class="spark s1">✦</span><span class="spark s2">✧</span></div></div></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-top">Exams completed <span class="stat-icon">✓</span></div><div class="stat-value" id="statCompleted">0</div><div class="stat-note">Keep building the habit</div></div>
+    <div class="stat"><div class="stat-top">Average score <span class="stat-icon">◎</span></div><div class="stat-value" id="statAverage">—</div><div class="stat-note">Across completed exams</div></div>
+    <div class="stat"><div class="stat-top">Correct answers <span class="stat-icon">✦</span></div><div class="stat-value" id="statCorrect">0</div><div class="stat-note">Every answer teaches you</div></div>
+    <div class="stat"><div class="stat-top">Learning time <span class="stat-icon">◷</span></div><div class="stat-value" id="statTime">0m</div><div class="stat-note">Time spent practicing</div></div>
+  </div>
+  <div class="section-head"><div><h2>Pick up where you left off</h2><p>A quick session is better than waiting for perfect motivation.</p></div><button class="text-btn" onclick="navigate('exams')">All exams →</button></div>
+  <div class="continue-card"><div class="continue-left"><div class="lesson-icon">✎</div><div><h3 id="continueTitle">Everyday English: Quick Check</h3><p id="continueSub">10 questions · Mixed skills · Beginner</p></div></div><button class="btn btn-primary" onclick="startExam(1)">Continue →</button></div>
+  <div class="section-head"><div><h2>Explore learning paths</h2><p>Choose the skill you want to strengthen today.</p></div></div>
+  <div class="course-grid" id="courseGrid"></div>
+  <div class="dashboard-bottom"><div class="panel"><div class="panel-head"><h3>Practice activity</h3><span class="tag">Last 7 days</span></div><div class="activity-bars" id="activityBars"></div></div><div class="panel"><div class="panel-head"><h3>Your skills</h3><span class="tag">Based on results</span></div><div id="skillProgress"></div></div></div>
+</section>
+<section class="view" id="view-exams">
+  <div class="section-head"><div><h2>Explore 120+ exams</h2><p>Short, focused practice for the English skills that matter.</p></div><span class="tag" id="examCount">120 exams</span></div>
+  <div class="search-row"><div class="searchbox"><input id="examSearch" placeholder="Search exams, topics, or skills…" autocomplete="off"></div><select class="select" id="difficultySelect" aria-label="Difficulty"><option value="All">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+  <div class="filters" id="examFilters"></div><div class="exam-grid" id="examGrid"></div>
+</section>
+<section class="view" id="view-quiz"><div class="quiz-shell" id="quizMount"></div></section>
+<section class="view" id="view-progress">
+  <div class="section-head"><div><h2>Your progress</h2><p>Progress is saved on this device, not in some mysterious cloud.</p></div><button class="btn btn-outline" onclick="exportData()">Export data ↓</button></div>
+  <div class="stats"><div class="stat"><div class="stat-top">Completion <span class="stat-icon">✓</span></div><div class="stat-value" id="progCompletion">0%</div><div class="stat-note">Exams completed at least once</div></div><div class="stat"><div class="stat-top">Best score <span class="stat-icon">★</span></div><div class="stat-value" id="progBest">—</div><div class="stat-note">Your personal best</div></div><div class="stat"><div class="stat-top">Questions tried <span class="stat-icon">▤</span></div><div class="stat-value" id="progQuestions">0</div><div class="stat-note">Across all practice sessions</div></div><div class="stat"><div class="stat-top">Saved exams <span class="stat-icon">♡</span></div><div class="stat-value" id="progSaved">0</div><div class="stat-note">Your personal shortlist</div></div></div>
+  <div class="panel"><div class="panel-head"><h3>Recent sessions</h3><span class="tag">Newest first</span></div><div id="historyList"></div></div>
+</section>
+<section class="view" id="view-saved"><div class="section-head"><div><h2>Saved exams</h2><p>Your shortlist, ready when you are.</p></div></div><div class="exam-grid" id="savedGrid"></div></section>
+<section class="view" id="view-settings">
+  <div class="section-head"><div><h2>Settings & data</h2><p>Make LexiLearn feel like yours.</p></div></div>
+  <div class="setting-card"><h3>Your profile</h3><p>This name appears in your learning space. No account needed.</p><div class="setting-row"><div><strong>Display name</strong><small>Just for this browser</small></div><input id="nameInput" maxlength="28" value="Learner" aria-label="Display name"></div><div class="setting-row"><div><strong>Daily goal</strong><small>Minutes of English practice</small></div><select id="goalSelect" class="select"><option value="5">5 minutes</option><option value="10" selected>10 minutes</option><option value="15">15 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></div><button class="btn btn-primary" onclick="saveSettings()">Save settings</button></div>
+  <div class="setting-card"><h3>Your data stays local</h3><p>Progress and preferences are stored in this browser with localStorage. Clearing browser data or switching browsers can erase or separate it. Export a backup if you want to keep it.</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-outline" onclick="exportData()">Export backup</button><label class="btn btn-outline" for="importFile">Import backup ↑</label><input type="file" id="importFile" accept=".json,application/json" hidden onchange="importData(event)"><button class="btn" style="background:#fff0f1;color:#bf3447" onclick="resetData()">Reset all progress</button></div></div>
+  <div class="setting-card"><h3>About LexiLearn</h3><p>120 generated exam sets, 10 learning categories, instant feedback, answer reviews, a spelling input, and local progress tracking. The app does not need a server or internet connection after the file is saved.</p></div>
+</section>
+<footer>LexiLearn · Learn at your pace · Your progress belongs to you</footer>
+</main>
+</div>
+<nav class="mobile-nav" id="mobileNav"><button class="active" data-view="dashboard"><span>⌂</span>Home</button><button data-view="exams"><span>▤</span>Exams</button><button data-view="progress"><span>◷</span>Progress</button><button data-view="saved"><span>♡</span>Saved</button><button data-view="settings"><span>⚙</span>Settings</button></nav>
+<div class="toast" id="toast"></div>
+<script>
+const categories=[
+{name:"Grammar",emoji:"⌘",desc:"Build accurate sentences, tenses, and punctuation.",color:"#eeeaff",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Vocabulary",emoji:"✧",desc:"Learn useful words, meanings, and natural expressions.",color:"#fff0d9",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Spelling",emoji:"✎",desc:"Train your eye for tricky words and common mistakes.",color:"#e0f8ee",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Reading",emoji:"▣",desc:"Understand short passages and find the important details.",color:"#e5f1ff",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Sentence Building",emoji:"☷",desc:"Put words in order and make sentences sound natural.",color:"#ffe8ef",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Punctuation",emoji:"❝",desc:"Make commas, apostrophes, and full stops work for you.",color:"#f9e8ff",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Word Forms",emoji:"Aa",desc:"Practice nouns, verbs, adjectives, and adverbs.",color:"#e4f7f8",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Prepositions",emoji:"↗",desc:"Choose the right little words for time, place, and movement.",color:"#fff1df",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Listening Skills",emoji:"♫",desc:"Use written dialogue and sound-free listening-style comprehension.",color:"#e9e8ff",levels:["Beginner","Intermediate","Advanced"]},
+{name:"Everyday English",emoji:"☀",desc:"Practice useful phrases for real-life conversations.",color:"#e2f8e9",levels:["Beginner","Intermediate","Advanced"]}
+];
+const bank={
+"Grammar":[
+["She ___ to school every day.","go","goes","going","gone",1,"Use the present simple with he, she, or it."],
+["They ___ watching a film right now.","is","was","are","be",2,"Use 'are' with the plural subject 'they'."],
+["I ___ my homework yesterday.","finish","finished","finishing","finishes",1,"'Yesterday' signals the past simple."],
+["If I ___ more time, I would learn French.","have","had","will have","having",1,"The second conditional uses 'if + past simple'."],
+["He has lived here ___ 2020.","for","since","during","from",1,"Use 'since' with a starting point in time."],
+["There ___ much milk left.","aren't","weren't","isn't","haven't",2,"'Milk' is uncountable, so use 'isn't'."],
+["Neither of the answers ___ correct.","are","were","is","be",2,"'Neither' is treated as singular in standard formal English."],
+["By next June, she ___ her course.","finishes","finished","will have finished","has finish",2,"Future perfect describes completion before a future point."],
+["I wish I ___ taller.","am","were","will be","be",1,"Use 'were' for an unreal present wish."],
+["The book ___ by millions of people.","read","has read","has been read","is reading",2,"Present perfect passive: has/have been + past participle."],
+["You ___ wear a seat belt; it's the law.","might","must","would","could","1","'Must' expresses a strong obligation."],
+["When I arrived, they ___ dinner.","have","had already eaten","already eat","will eat",1,"Past perfect marks the earlier of two past actions."],
+["She asked me where I ___.","live","do live","lived","am live",2,"Reported questions usually backshift the tense."],
+["This is the ___ interesting book I've read.","more","most","much","very",1,"Use 'the most' to form a superlative."],
+["I don't have ___ information about it.","many","a few","much","several",2,"'Information' is uncountable; use 'much'."],
+["Each student ___ a notebook.","have","has","are having","were",1,"'Each' takes a singular verb."],
+["The train ___ before we reached the station.","leaves","has left","had left","leave",2,"Past perfect shows it left before another past event."],
+["You look tired. You ___ get some rest.","should","wouldn't","can't to","mustn't to",0,"'Should' is used for advice."],
+["She speaks English ___ than I do.","good","best","better","more good",2,"'Better' is the comparative form of 'well'."],
+["I have never ___ sushi before.","eat","ate","eaten","eating",2,"Present perfect uses the past participle 'eaten'."]
+],
+"Vocabulary":[
+["What does 'generous' mean?","Unwilling to share","Willing to give or share","Very tired","Easy to confuse",1,"A generous person is happy to give or share."],
+["Choose a synonym for 'rapid'.","Slow","Careful","Quick","Quiet",2,"'Rapid' means fast or quick."],
+["What is the opposite of 'ancient'?","Modern","Historic","Old","Former",0,"'Modern' is the opposite of 'ancient'."],
+["If something is 'fragile', it is…","Very expensive","Easily broken","Extremely heavy","Always useful",1,"Fragile objects need careful handling."],
+["A person who writes books is an…","Architect","Author","Audience","Editor-in-chief",1,"An author writes books or other texts."],
+["What does 'reluctant' mean?","Excited to begin","Not willing or eager","Completely certain","Very noisy",1,"Reluctant means hesitant or unwilling."],
+["Choose the closest meaning to 'brief'.","Short","Confusing","Polite","Wide",0,"A brief explanation is short."],
+["If you 'purchase' something, you…","Borrow it","Repair it","Buy it","Lose it",2,"Purchase is a more formal word for buy."],
+["What does 'accurate' mean?","Correct and exact","Fast and loud","Old-fashioned","Hard to see",0,"Accurate information is correct and precise."],
+["A 'benefit' is something that…","Causes a problem","Helps or gives an advantage","Costs too much","Happens by accident",1,"A benefit is an advantage or helpful result."],
+["What does 'observe' mean?","Watch carefully","Forget quickly","Argue loudly","Move away",0,"To observe is to watch or notice carefully."],
+["Choose an antonym for 'expand'.","Increase","Stretch","Enlarge","Shrink",3,"Shrink means to become smaller."],
+["If a task is 'optional', it is…","Required","Not required","Impossible","Already finished",1,"Optional things are a choice, not a requirement."],
+["What does 'maintain' mean?","Keep in good condition","Throw away","Make a guess","Start suddenly",0,"Maintain means to keep something in a particular state."],
+["A 'reliable' person can be…","Trusted","Ignored","Avoided","Misunderstood",0,"Reliable means dependable or trustworthy."],
+["What does 'frequent' mean?","Very rare","Happening often","Completely silent","Never planned",1,"Frequent events happen often."],
+["Choose a synonym for 'assist'.","Prevent","Help","Refuse","Delay",1,"Assist means to help."],
+["If you 'avoid' a problem, you…","Face it directly","Stay away from it","Make it larger","Explain it clearly",1,"Avoid means to keep away from something."],
+["What does 'essential' mean?","Not important","Very expensive","Absolutely necessary","Unusual",2,"Essential things are necessary or extremely important."],
+["A 'consequence' is…","A result of an action","A type of question","A personal opinion","A small decoration",0,"A consequence is an outcome or result."]
+],
+"Spelling":[
+["Choose the correctly spelled word.","Definately","Definitely","Definatly","Definetely",1,"Correct spelling: definitely."],
+["Choose the correctly spelled word.","Necessary","Neccessary","Necesary","Neccesary",0,"Necessary has one c and two s letters."],
+["Choose the correctly spelled word.","Separate","Seperate","Seperete","Sepparate",0,"Correct spelling: separate."],
+["Choose the correctly spelled word.","Occured","Occurred","Ocurred","Occurrred",1,"Occurred has a double r."],
+["Choose the correctly spelled word.","Recieve","Receive","Receeve","Receve",1,"Remember: i before e except after c."],
+["Choose the correctly spelled word.","Environment","Enviroment","Environmant","Envirenment",0,"Correct spelling: environment."],
+["Choose the correctly spelled word.","Accomodation","Accommodation","Acommodation","Accommadation",1,"Accommodation has double c and double m."],
+["Choose the correctly spelled word.","Privilege","Privelege","Priviledge","Privilage",0,"Correct spelling: privilege."],
+["Choose the correctly spelled word.","Independent","Independant","Independet","Independantt",0,"Correct spelling: independent."],
+["Choose the correctly spelled word.","Recommend","Recomend","Reccommend","Recommened",0,"Recommend has one c and double m."],
+["Choose the correctly spelled word.","Embarrass","Embarass","Embarras","Embaras",0,"Embarrass has double r and double s."],
+["Choose the correctly spelled word.","Beginning","Begining","Begginning","Begininning",0,"Beginning has one g after 'be' and double n."],
+["Choose the correctly spelled word.","Conscience","Concience","Consciense","Conshience",0,"Correct spelling: conscience."],
+["Choose the correctly spelled word.","Occasion","Ocassion","Occassion","Ocation",0,"Occasion has double c and one s."],
+["Choose the correctly spelled word.","Maintenance","Maintainance","Maintenence","Maintanance",0,"Correct spelling: maintenance."],
+["Type the correct spelling: the opposite of 'early'.","","","","",0,"late","text"],
+["Type the correct spelling: a place where books are borrowed.","","","","",0,"library","text"],
+["Type the correct spelling: to make something better.","","","","",0,"improve","text"],
+["Type the correct spelling: a person who teaches.","","","","",0,"teacher","text"],
+["Type the correct spelling: something you can believe or trust.","","","","",0,"reliable","text"]
+],
+"Sentence Building":[
+["Choose the correct sentence.","She don't like tea.","She doesn't like tea.","She not like tea.","She doesn't likes tea.",1,"After 'doesn't', use the base verb: like."],
+["Put the words in the best order.","Always I breakfast eat.","I eat always breakfast.","I always eat breakfast.","I breakfast always eat.",2,"Frequency adverbs usually go before the main verb."],
+["Choose the natural sentence.","I'm interested in music.","I'm interested on music.","I'm interesting in music.","I interested in music.",0,"The correct phrase is 'interested in'."],
+["Choose the correct sentence.","He can to swim.","He cans swim.","He can swim.","He can swimming.",2,"Modal verbs like 'can' take the base verb."],
+["Choose the best sentence.","Although it was raining, we went out.","Although it was raining, but we went out.","Although raining, but we out.","It was raining although we went out but.",0,"Don't use 'although' and 'but' together for the same contrast."],
+["Choose the correct sentence.","I have 18 years old.","I am 18 years old.","I has 18 years.","I be 18 years old.",1,"Age uses the verb 'be' in English."],
+["Choose the correct sentence.","Could you tell me where is the station?","Could you tell me where the station is?","Could you tell where is station?","Could you tell me where station be?",1,"Indirect questions use normal subject-verb order."],
+["Choose the best sentence.","There are less people today.","There are fewer people today.","There is fewer people today.","There are fewest people today.",1,"Use 'fewer' with countable plural nouns."],
+["Choose the correct sentence.","I look forward to hear from you.","I look forward hearing from you.","I look forward to hearing from you.","I looking forward to hear from you.",2,"In this expression, 'to' is a preposition followed by -ing."],
+["Choose the correct sentence.","She is married with a doctor.","She is married to a doctor.","She married with a doctor.","She is marry to a doctor.",1,"The standard phrase is 'married to someone'."],
+["Choose the natural sentence.","I made a mistake.","I did a mistake.","I took a mistake.","I created mistake.",0,"English uses the collocation 'make a mistake'."],
+["Choose the correct sentence.","He explained me the rule.","He explained the rule to me.","He explained to me the rule it.","He did explain me rule.",1,"Say 'explain something to someone'."],
+["Choose the best sentence.","Despite of the rain, we played.","Despite the rain, we played.","Despite it was raining, we played.","Despite raining, but we played.",1,"Use 'despite + noun phrase' without 'of'."],
+["Choose the correct sentence.","I used to playing outside.","I use to played outside.","I used to play outside.","I was use to play outside.",2,"'Used to' for past habits is followed by the base verb."],
+["Choose the correct sentence.","The news are surprising.","The news is surprising.","The news were surprise.","News are surprise.",1,"'News' is grammatically singular."]
+],
+"Punctuation":[
+["Choose the correctly punctuated sentence.","Lets eat, Grandma!","Let's eat Grandma!","Lets eat Grandma.","Let's eat, Grandma!",3,"The apostrophe in 'Let's' and comma before 'Grandma' change the meaning."],
+["Which sentence uses an apostrophe correctly?","The dogs bone is here.","The dog's bone is here.","The dogs' bone is here (one dog).","The dog,s bone is here.",1,"A singular owner usually takes apostrophe + s."],
+["Choose the correct punctuation.","Where are you going.","Where are you going?","Where are you going,","Where are you going!",1,"A direct question ends with a question mark."],
+["Choose the correct sentence.","I bought apples, oranges, and pears.","I bought apples oranges and pears","I bought, apples oranges, and pears.","I bought apples; oranges, and pears.",0,"Commas separate items in a list."],
+["Choose the correct sentence.","Its a beautiful day.","It's a beautiful day.","Its' a beautiful day.","It,s a beautiful day.",1,"'It's' means 'it is'; 'its' shows possession."],
+["Which punctuation marks direct speech?","Parentheses only","Quotation marks","A hyphen only","An apostrophe only",1,"Quotation marks enclose direct speech in standard English."],
+["Choose the correct punctuation.","However I was late.","However, I was late.","However; I was late,","However: I, was late.",1,"An introductory 'however' is usually followed by a comma."],
+["Choose the correct sentence.","My friend, who lives nearby is a teacher.","My friend who lives nearby, is a teacher.","My friend, who lives nearby, is a teacher.","My friend who, lives nearby is a teacher.",2,"A nonessential relative clause is set off with commas."],
+["Which sentence is punctuated correctly?","Wait! Don't move.","Wait don't! move.","Wait, don't move?","Wait; don't, move!",0,"An exclamation can express urgency, followed by a clear command."],
+["Choose the correct possessive form for several students.","The student's books (several students)","The students books","The students' books","The students's books",2,"Plural nouns ending in s take an apostrophe after the s."]
+],
+"Word Forms":[
+["Choose the correct form: She sings ___.","beautiful","beauty","beautifully","beautify",2,"An adverb describes how she sings."],
+["The ___ of the story surprised us.","end","ending","ended","endless",1,"'Ending' is the noun referring to how a story concludes."],
+["He is a very ___ driver.","care","carefully","careful","caringly",2,"An adjective describes the noun 'driver'."],
+["We need to make a final ___.","decide","decision","decisive","deciding",1,"'Decision' is the noun form."],
+["The instructions were ___.","confusion","confuse","confusing","confusedly",2,"'Confusing' describes something that causes confusion."],
+["She answered the question ___.","correct","correction","correctly","correctness",2,"An adverb modifies the verb 'answered'."],
+["His ___ made everyone laugh.","kind","kindness","kindly","kinder",1,"'Kindness' is the noun form."],
+["This is an ___ opportunity.","excite","excited","exciting","excitement",2,"'Exciting' describes something that creates excitement."],
+["The team worked with great ___.","efficient","efficiency","efficiently","efficiencies",1,"'Efficiency' is the noun that follows 'great'."],
+["She gave a very ___ explanation.","help","helpful","helpfully","helped",1,"An adjective describes the explanation."]
+],
+"Prepositions":[
+["The meeting starts ___ 9 a.m.","in","on","at","by",2,"Use 'at' for a precise clock time."],
+["My birthday is ___ July.","at","in","on","by",1,"Use 'in' with months."],
+["The picture is ___ the wall.","at","on","in","to",1,"A picture is usually 'on' a wall."],
+["She's good ___ mathematics.","in","at","on","for",1,"The common phrase is 'good at' a subject or activity."],
+["We arrived ___ the airport early.","to","at","in","on",1,"Use 'arrive at' for a specific point or place."],
+["I've been waiting ___ two hours.","since","for","during","from",1,"Use 'for' with a duration."],
+["He apologized ___ being late.","of","at","for","with",2,"The phrase is 'apologize for something'."],
+["The cat jumped ___ the table.","onto","between","underneath of","along to",0,"'Onto' describes movement to a surface."],
+["She depends ___ her friends.","of","at","on","with",2,"The verb 'depend' takes 'on'."],
+["We walked ___ the bridge.","across","among","between","through of",0,"'Across' describes movement from one side to another."]
+],
+"Reading":[
+["Read: 'Mina left home early because the roads were icy. She arrived at work ten minutes before her shift.' Why did Mina leave early?","She forgot her keys","The roads were icy","Her shift was cancelled","She wanted to shop",1,"The passage directly says she left early because the roads were icy."],
+["Read: 'Omar planted tomatoes in April. By July, the plants were tall and full of fruit.' What can you infer?","The plants grew over time","Omar bought tomatoes in July","The plants died","It was winter",0,"The plants developed from April to July."],
+["Read: 'The library will close at 6 p.m. on Friday for maintenance.' What time will it close?","5 p.m.","6 p.m.","7 p.m.","It stays open all night",1,"The notice states 6 p.m."],
+["Read: 'Lena wanted to save money, so she packed lunch instead of buying food.' What was Lena's goal?","Eat more quickly","Save money","Learn to cook professionally","Meet a friend",1,"Packing lunch was her way to save money."],
+["Read: 'Although the hike was difficult, everyone smiled when they reached the lake.' How did the group probably feel at the end?","Disappointed","Angry","Pleased","Sleepy only",2,"Their smiles suggest they were happy with reaching the lake."],
+["Read: 'The museum's new exhibit features tools used by farmers 200 years ago.' What is the exhibit about?","Modern computers","Historical farming tools","Paintings of oceans","Future inventions",1,"The exhibit features old farming tools."],
+["Read: 'Sam checked the weather forecast and put an umbrella in his bag.' What did Sam expect might happen?","It might rain","It would snow indoors","His bag would break","The forecast was a recipe",0,"An umbrella suggests he thought rain was possible."],
+["Read: 'Nora's first draft was unclear. After feedback, she reorganized the paragraphs and added examples.' What helped improve the draft?","Deleting every word","Feedback and revision","Changing the paper color","Writing less carefully",1,"She used feedback to revise and clarify her work."],
+["Read: 'The bus was full, but the driver waited for an elderly passenger to sit down before moving.' What does this show about the driver?","Impatience","Carefulness and consideration","Confusion","Disinterest",1,"The driver waited to make sure the passenger was seated."],
+["Read: 'The small café sources its coffee beans from local farms and changes its menu with the seasons.' Which statement is supported?","The café uses local coffee beans","The menu never changes","It only sells tea","It owns every farm",0,"The passage explicitly says the beans come from local farms."]
+],
+"Listening Skills":[
+["Dialogue: 'A: Could I have a glass of water? B: Certainly. Still or sparkling?' What does B ask?","If A wants cold food","What kind of water A prefers","Where A lives","When A is leaving",1,"B asks the customer to choose still or sparkling water."],
+["Announcement: 'The 10:15 train to Bristol is delayed by twenty minutes.' When should passengers expect it now?","10:15 exactly","10:20","About 10:35","11:15",2,"Twenty minutes after 10:15 is 10:35."],
+["Conversation: 'I thought the film started at seven.' 'It does, but the doors open at six thirty.' When does the film start?","6:00","6:30","7:00","7:30",2,"The doors open earlier, but the film starts at seven."],
+["Message: 'Please call me back after your meeting, but before lunch.' When should the person call?","During the meeting","After the meeting and before lunch","Tomorrow morning","After dinner",1,"The message gives a clear time window."],
+["Conversation: 'Would you rather walk or take a taxi?' 'Let's walk. It's only five minutes away.' What do they decide?","Take a taxi","Walk","Cancel the visit","Drive for an hour",1,"The second speaker suggests walking, and 'let's' accepts it."],
+["Notice: 'Passengers must keep their tickets until they leave the station.' What must passengers do?","Throw tickets away immediately","Keep their tickets","Buy two tickets","Leave before arriving",1,"They must keep the ticket until they exit."],
+["Conversation: 'I'm afraid I can't attend tonight. My daughter is unwell.' Why can't the speaker attend?","They are working late","Their daughter is unwell","They forgot the address","The event was cancelled",1,"The speaker gives their daughter's illness as the reason."],
+["Message: 'The package is at reception. Please bring photo ID to collect it.' What is needed?","A passport-sized photo only","Photo identification","A new package","A receipt for lunch",1,"Photo ID is required for collection."],
+["Conversation: 'How was the exam?' 'Harder than I expected, especially the last section.' What was difficult?","The entire class","Especially the final section","Finding the building","Arriving on time",1,"The speaker specifically mentions the last section."],
+["Announcement: 'Platform changes: the train to York now leaves from platform four.' Where should passengers go?","Platform one","Platform two","Platform four","Outside the station",2,"The announcement gives platform four."]
+],
+"Everyday English":[
+["What is a polite way to ask someone to repeat something?","Say that again, now.","Could you say that again, please?","You are unclear.","Repeat!",1,"A polite request uses 'Could you… please?'"],
+["Someone says, 'Thank you for your help.' You reply…","Never mind you","You're welcome","I don't think so","Excuse you",1,"'You're welcome' is a natural response to thanks."],
+["How do you politely ask for the bill in a restaurant?","Give money now.","Can we have the bill, please?","You bill me.","Where is my cash?",1,"A polite request is clear and uses 'please'."],
+["A friend says, 'I'm sorry I'm late.' A natural response is…","That's okay.","You are late yesterday.","I sorry too.","No, you late.",0,"'That's okay' is a common reassuring response."],
+["How can you ask for directions politely?","Tell road.","Could you tell me how to get to the station?","Where station be?","You know station?",1,"This is a polite and grammatically natural request."],
+["You don't understand a word. What can you say?","What does that word mean?","You word wrong.","Meaning now.","What word doing?",0,"Ask directly and politely about the word's meaning."],
+["Someone invites you but you are busy. What is a polite response?","No. Stop asking.","I'd love to, but I'm busy that day.","I never go anywhere.","Your plan is bad.",1,"Thank them and explain your availability politely."],
+["How do you offer help?","You need help, yes?","Can I give you a hand?","Help me you.","What is your problem?",1,"'Can I give you a hand?' is a friendly offer of help."],
+["You arrive at a meeting and introduce yourself. You can say…","I called myself Sam.","Hi, I'm Sam. Nice to meet you.","You know who I.","Name Sam meeting.",1,"This is a natural self-introduction."],
+["How do you check that you understood correctly?","So, if I understand correctly…","I understand nothing ever.","You say again all.","That makes no sense.",0,"This phrase politely confirms your understanding."]
+]
+};
+const letters=["A","B","C","D"];
+const allExams=[];
+const topicNames={
+"Grammar":["Present simple & continuous","Past tense essentials","Perfect tenses","Conditionals","Modal verbs","Articles & determiners","Subject-verb agreement","Reported speech","Comparatives & superlatives","Mixed grammar review","Passive voice","Question forms"],
+"Vocabulary":["Everyday essentials","Synonyms","Antonyms","Feelings & personality","School and work","Travel words","Common phrasal verbs","Academic vocabulary","Word meanings","Useful expressions","Precision words","Vocabulary challenge"],
+"Spelling":["Common tricky words","Double letters","Words people mix up","Silent letters","School vocabulary","Work vocabulary","Everyday spelling","Advanced spellings","Choose the correct spelling","Spelling speed check","Type the missing word","Spelling mastery"],
+"Reading":["Main idea","Find the detail","Make an inference","Short notices","Cause and effect","Tone and mood","Reading for purpose","Evidence in a passage","Everyday texts","Reading challenge","Inference practice","Comprehension review"],
+"Sentence Building":["Word order","Negative sentences","Questions","Natural expressions","Connectors","Comparisons","Polite requests","Complex sentences","Common mistakes","Sentence repair","Everyday phrases","Sentence mastery"],
+"Punctuation":["Apostrophes","Commas","Question marks","Quotation marks","Possessives","Lists and clauses","Introductory phrases","Sentence endings","Common punctuation errors","Punctuation repair","Advanced punctuation","Punctuation review"],
+"Word Forms":["Adverbs","Noun forms","Adjectives","Verb forms","Word families","Prefixes","Suffixes","-ed and -ing adjectives","Formal word forms","Word form repair","Word building","Word forms review"],
+"Prepositions":["Time: at, in, on","Place and position","Movement","Verb + preposition","Adjective + preposition","For and since","Travel prepositions","Everyday phrases","Common mistakes","Preposition repair","Mixed prepositions","Preposition mastery"],
+"Listening Skills":["Everyday conversations","Announcements","Time and dates","Requests and replies","Travel announcements","Phone messages","Understanding reasons","Following instructions","Conversation details","Listening comprehension","Practical dialogues","Listening review"],
+"Everyday English":["Polite requests","At a restaurant","Asking directions","Making introductions","Making plans","Apologies and thanks","Shopping conversations","At work or school","Asking for clarification","Social situations","Useful responses","Everyday English review"]
+};
+function questionObj(raw,cat,index){
+ const isText=raw[7]==="text";
+ if(isText)return {prompt:raw[0],type:"text",answer:raw[6],explanation:raw[5],hint:"Type the missing word. Spelling matters, but capitalization does not.",skill:cat};
+ const opts=raw.slice(1,5);let answer=Number(raw[5]);if(Number.isNaN(answer))answer=0;
+ return {prompt:raw[0],type:"choice",options:opts,answer,explanation:raw[6],hint:"Choose the best answer.",skill:cat};
+}
+function shuffle(arr){let a=arr.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+categories.forEach((cat,ci)=>{
+ for(let n=0;n<12;n++){
+  const level=n<4?"Beginner":n<8?"Intermediate":"Advanced";
+  const topic=topicNames[cat.name][n];
+  const source=bank[cat.name]||bank.Grammar;
+  let qs=[];
+  // Every exam gets a distinct, deterministic mix drawn from the skill bank, then randomized at run time.
+  for(let j=0;j<8;j++){
+   let idx=(n*3+j*2+Math.floor(j/3))%source.length;
+   if(cat.name==="Spelling" && source[idx][7]==="text"){
+    const r=source[idx];qs.push(questionObj(r,cat.name,idx));
+   }else qs.push(questionObj(source[idx],cat.name,idx));
+  }
+  allExams.push({id:ci*12+n+1,category:cat.name,title:topic,level,description:`Practice ${topic.toLowerCase()} with eight focused questions and instant feedback.`,questions:qs,minutes:4+n%4,emoji:cat.emoji});
+ }
+});
+// Make the first exam a balanced sampler across core skills.
+allExams[0].title="Everyday English: Quick Check";
+allExams[0].description="A friendly mix of grammar, vocabulary, spelling, and real-life English.";
+allExams[0].questions=[
+ questionObj(bank.Grammar[0],"Grammar"),questionObj(bank.Vocabulary[0],"Vocabulary"),questionObj(bank.Spelling[1],"Spelling"),
+ questionObj(bank["Sentence Building"][0],"Sentence Building"),questionObj(bank.Punctuation[2],"Punctuation"),questionObj(bank["Word Forms"][0],"Word Forms"),
+ questionObj(bank.Prepositions[0],"Prepositions"),questionObj(bank.Reading[0],"Reading")
+];
+const STORAGE="lexilearn_v1";
+const freshState=()=>({name:"Learner",goal:10,completed:{},saved:[],history:[],totalCorrect:0,totalQuestions:0,totalSeconds:0,streak:0,lastPractice:"",daily:{},categoryStats:{}});
+let state=loadState(), currentExam=null, currentQuestions=[], currentIndex=0, answers=[], checked=[], quizStarted=0, timerTick=null, currentFilter="All", currentView="dashboard", resultMode=false;
+function loadState(){try{return {...freshState(),...JSON.parse(localStorage.getItem(STORAGE)||"{}")}}catch(e){return freshState()}}
+function saveState(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch(e){toast("Storage is full. Export your data and clear old browser files.")}}
+function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.remove("show"),2400)}
+function navigate(view,filter){if(timerTick){clearInterval(timerTick);timerTick=null}currentView=view;document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+view));document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===view));document.getElementById("pageTitle").textContent=({dashboard:`Good ${new Date().getHours()<12?"morning":new Date().getHours()<18?"afternoon":"evening"}, ${state.name}.`,exams:"Find your next challenge.",quiz:"Practice time.",progress:"Look how far you've come.",saved:"Your saved exams.",settings:"Your space, your rules."})[view]||"LexiLearn";if(view==="exams"){if(filter){currentFilter=filter;document.getElementById("examSearch").value="";}renderFilters();renderExamGrid()}if(view==="saved")renderSaved();if(view==="progress")renderProgress();if(view==="dashboard")renderDashboard();if(view==="settings"){document.getElementById("nameInput").value=state.name;document.getElementById("goalSelect").value=state.goal}window.scrollTo({top:0,behavior:"smooth"})}
+document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>navigate(b.dataset.view,b.dataset.filter)));
+function examById(id){return allExams.find(e=>e.id===Number(id))}
+function startExam(id){const exam=examById(id)||allExams[0];currentExam=exam;currentQuestions=shuffle(exam.questions).map(q=>({...q,options:q.options?q.options.slice():undefined}));currentIndex=0;answers=Array(currentQuestions.length).fill(null);checked=Array(currentQuestions.length).fill(false);quizStarted=Date.now();resultMode=false;navigate("quiz");renderQuestion()}
+function renderQuestion(){
+ const mount=document.getElementById("quizMount");if(!currentExam)return;
+ if(resultMode){renderResult();return}
+ const q=currentQuestions[currentIndex],isChecked=checked[currentIndex],selected=answers[currentIndex];
+ mount.innerHTML=`<div class="quiz-top"><button class="btn btn-outline" onclick="leaveQuiz()">← Exit exam</button><div class="muted" style="font-size:12px;font-weight:750">${currentExam.emoji} ${esc(currentExam.category)} · ${currentExam.level}</div></div><div class="quiz-progress"><span style="width:${(currentIndex/currentQuestions.length)*100}%"></span></div><div class="quiz-card"><div class="question-meta"><span class="tag">QUESTION ${currentIndex+1} OF ${currentQuestions.length}</span><span>${q.type==="text"?"SPELLING":"MULTIPLE CHOICE"}</span></div><h2>${esc(q.prompt)}</h2><p class="question-hint">${esc(q.hint||"Choose the best answer.")}</p>${q.type==="text"?`<input class="text-answer" id="textAnswer" autocomplete="off" autocapitalize="none" placeholder="Type your answer…" value="${selected===null?"":esc(selected)}" ${isChecked?"disabled":""} onkeydown="if(event.key==='Enter')checkAnswer()">`:`<div class="answers">${q.options.map((o,i)=>`<button class="answer ${selected===i?"selected":""} ${isChecked&&i===q.answer?"correct":""} ${isChecked&&selected===i&&i!==q.answer?"wrong":""}" onclick="chooseAnswer(${i})" ${isChecked?"disabled":""}><span class="letter">${letters[i]}</span><span>${esc(o)}</span>${isChecked&&i===q.answer?'<span style="margin-left:auto">✓</span>':""}</button>`).join("")}</div>`}<div class="feedback ${isChecked?"show "+(isCorrect(q,selected)?"good":"bad"):""}">${isChecked?(isCorrect(q,selected)?"✓ Correct! ":"✦ Not quite. ")+esc(q.explanation||"Keep practicing."): ""}</div><div class="quiz-controls"><span class="muted" style="font-size:12px">${currentIndex+1} / ${currentQuestions.length}</span>${!isChecked?`<button class="btn btn-primary" onclick="checkAnswer()" ${selected===null?"disabled":""}>Check answer ✓</button>`:`<button class="btn btn-primary" onclick="nextQuestion()">${currentIndex===currentQuestions.length-1?"See results":"Next question"} →</button>`}</div></div>`;
+ if(q.type==="text"&&!isChecked){const inp=document.getElementById("textAnswer");inp.addEventListener("input",()=>{answers[currentIndex]=inp.value;mount.querySelector(".quiz-controls .btn-primary").disabled=!inp.value.trim()});}
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function isCorrect(q,a){if(q.type==="text")return String(a||"").trim().toLowerCase().replace(/[.!?]/g,"")===String(q.answer).trim().toLowerCase();return a===q.answer}
+function chooseAnswer(i){if(checked[currentIndex])return;answers[currentIndex]=i;renderQuestion()}
+function checkAnswer(){const q=currentQuestions[currentIndex];if(q.type==="text"){const el=document.getElementById("textAnswer");answers[currentIndex]=el.value.trim()}if(answers[currentIndex]===null||answers[currentIndex]===""){toast("Choose or type an answer first.");return}checked[currentIndex]=true;renderQuestion()}
+function nextQuestion(){if(currentIndex<currentQuestions.length-1){currentIndex++;renderQuestion()}else{resultMode=true;renderResult()}}
+function leaveQuiz(){if(confirm("Exit this exam? Your unfinished answers won't be counted.")){navigate("exams")}}
+function renderResult(){
+ if(timerTick){clearInterval(timerTick);timerTick=null}
+ const correct=currentQuestions.reduce((n,q,i)=>n+(isCorrect(q,answers[i])?1:0),0),total=currentQuestions.length,score=Math.round(correct/total*100),seconds=Math.max(1,Math.round((Date.now()-quizStarted)/1000));
+ const prev=state.completed[currentExam.id]||{attempts:0,best:0};state.completed[currentExam.id]={attempts:prev.attempts+1,best:Math.max(prev.best,score),last:score,date:new Date().toISOString()};
+ state.totalCorrect+=correct;state.totalQuestions+=total;state.totalSeconds+=seconds;
+ const today=new Date().toISOString().slice(0,10);state.daily[today]=(state.daily[today]||0)+seconds;
+ if(state.lastPractice!==today){const y=new Date();y.setDate(y.getDate()-1);state.streak=state.lastPractice===y.toISOString().slice(0,10)?(state.streak||0)+1:1;state.lastPractice=today}
+ state.history.unshift({id:currentExam.id,title:currentExam.title,category:currentExam.category,score,correct,total,date:new Date().toISOString(),seconds});state.history=state.history.slice(0,100);
+ state.categoryStats[currentExam.category]=state.categoryStats[currentExam.category]||{correct:0,total:0};state.categoryStats[currentExam.category].correct+=correct;state.categoryStats[currentExam.category].total+=total;
+ saveState();renderDashboard();
+ document.getElementById("quizMount").innerHTML=`<div class="quiz-card result"><div class="result-ring" style="--score:${score}%"><strong>${score}%</strong></div><h2>${score>=90?"Outstanding work!":score>=70?"You're making progress!":score>=50?"Keep building your skills.":"Every attempt is practice."}</h2><p>You got <strong>${correct} out of ${total}</strong> answers correct in ${Math.floor(seconds/60)}m ${seconds%60}s. ${score>=70?"Keep the momentum going.":"Review the explanations below and give it another try."}</p><div class="result-actions"><button class="btn btn-primary" onclick="startExam(${currentExam.id})">Try again ↻</button><button class="btn btn-outline" onclick="navigate('exams')">Explore exams</button><button class="btn btn-light" onclick="navigate('progress')">View progress</button></div><div class="review-list"><h3 style="margin:0 0 8px">Answer review</h3>${currentQuestions.map((q,i)=>`<div class="review-item"><strong>${i+1}. ${esc(q.prompt)}</strong><div class="${isCorrect(q,answers[i])?"correct-text":"wrong-text"}">${isCorrect(q,answers[i])?"✓ Correct":"✕ Your answer: "+esc(q.type==="text"?(answers[i]||"No answer"):q.options[answers[i]]??"No answer")}</div>${!isCorrect(q,answers[i])?`<div>Correct answer: <b>${esc(q.type==="text"?q.answer:q.options[q.answer])}</b></div>`:""}<div class="muted" style="margin-top:4px">${esc(q.explanation||"")}</div></div>`).join("")}</div></div>`;
+}
+function renderFilters(){const names=["All",...categories.map(c=>c.name)];document.getElementById("examFilters").innerHTML=names.map(n=>`<button class="filter-btn ${currentFilter===n?"active":""}" onclick="setFilter('${esc(n)}')">${esc(n)}</button>`).join("")}
+function setFilter(f){currentFilter=f;renderFilters();renderExamGrid()}
+function renderExamGrid(){
+ const search=(document.getElementById("examSearch")?.value||"").toLowerCase(),level=document.getElementById("difficultySelect")?.value||"All";
+ const list=allExams.filter(e=>(currentFilter==="All"||e.category===currentFilter)&&(level==="All"||e.level===level)&&(e.title+" "+e.category+" "+e.description).toLowerCase().includes(search));
+ document.getElementById("examCount").textContent=`${list.length} exam${list.length===1?"":"s"}`;
+ document.getElementById("examGrid").innerHTML=list.length?list.map(e=>examCard(e)).join(""):'<div class="empty">No exams match that search. Try another word or category.</div>';
+}
+function examCard(e){const prog=state.completed[e.id],saved=state.saved.includes(e.id);return `<article class="exam-card"><div style="display:flex;justify-content:space-between;align-items:center"><span class="exam-number">EXAM ${String(e.id).padStart(3,"0")}</span><button title="${saved?"Remove from saved":"Save exam"}" aria-label="${saved?"Remove from saved":"Save exam"}" onclick="toggleSave(${e.id})" style="border:0;background:transparent;font-size:19px;color:${saved?"#6d5ce8":"#a2aabc"}">${saved?"♥":"♡"}</button></div><h3>${e.emoji} ${esc(e.title)}</h3><p>${esc(e.description)}</p><div class="exam-card-foot"><span class="tag">${e.level}</span><span class="muted" style="font-size:11px">${e.questions.length} questions · ${e.minutes} min</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:13px"><span class="muted" style="font-size:11px">${prog?`Best score: ${prog.best}%`:"Not attempted"}</span><button class="btn btn-primary" style="padding:8px 12px;font-size:12px" onclick="startExam(${e.id})">Start →</button></div></article>`}
+function toggleSave(id){if(state.saved.includes(id))state.saved=state.saved.filter(x=>x!==id);else state.saved.push(id);saveState();renderExamGrid();renderSaved();toast(state.saved.includes(id)?"Exam saved":"Removed from saved")}
+function renderSaved(){const el=document.getElementById("savedGrid"),list=state.saved.map(examById).filter(Boolean);el.innerHTML=list.length?list.map(e=>examCard(e)).join(""):'<div class="empty"><div style="font-size:34px;margin-bottom:8px">♡</div><strong>No saved exams yet</strong><p>Tap the heart on any exam to keep it here.</p><button class="btn btn-primary" onclick="navigate(\'exams\')">Explore exams</button></div>'}
+function renderDashboard(){
+ document.getElementById("profileName").textContent=state.name;document.getElementById("avatar").textContent=(state.name.trim()[0]||"L").toUpperCase();document.getElementById("greeting").textContent="YOUR LEARNING SPACE";document.getElementById("pageTitle").textContent=`Good ${new Date().getHours()<12?"morning":new Date().getHours()<18?"afternoon":"evening"}, ${state.name}.`;
+ const scores=state.history.map(h=>h.score);document.getElementById("statCompleted").textContent=Object.keys(state.completed).length;document.getElementById("statAverage").textContent=scores.length?Math.round(scores.reduce((a,b)=>a+b,0)/scores.length)+"%":"—";document.getElementById("statCorrect").textContent=state.totalCorrect;document.getElementById("statTime").textContent=state.totalSeconds>=3600?Math.floor(state.totalSeconds/3600)+"h":Math.floor(state.totalSeconds/60)+"m";document.getElementById("streakTop").textContent=state.streak||0;document.getElementById("sideProgress").style.width=Math.min(100,(Object.keys(state.completed).length/allExams.length)*100)+"%";
+ document.getElementById("courseGrid").innerHTML=categories.slice(0,6).map(c=>{const exams=allExams.filter(e=>e.category===c.name),done=exams.filter(e=>state.completed[e.id]).length;return `<article class="course"><div class="course-top"><div class="course-emoji" style="background:${c.color}">${c.emoji}</div><span class="level">${c.levels[0]}–Advanced</span></div><h3>${c.name}</h3><p>${c.desc}</p><div class="course-meta"><span>${done}/12 exams completed</span><span>${Math.round(done/12*100)}%</span></div><div class="progress"><span style="width:${done/12*100}%"></span></div><div class="course-bottom"><strong>12 practice exams</strong><button class="small-arrow" onclick="navigate('exams','${c.name}')">→</button></div></article>`}).join("");
+ const bars=document.getElementById("activityBars");const today=new Date();let ds=[];for(let i=6;i>=0;i--){const d=new Date(today);d.setDate(today.getDate()-i);ds.push({key:d.toISOString().slice(0,10),label:d.toLocaleDateString("en",{weekday:"short"}).slice(0,2)})}const max=Math.max(1,...ds.map(d=>state.daily[d.key]||0));bars.innerHTML=ds.map((d,i)=>`<div class="bar-col"><div class="bar ${i===6?"today":""}" style="height:${Math.max(4,((state.daily[d.key]||0)/max)*92)}px" title="${Math.round((state.daily[d.key]||0)/60*10)/10} minutes"></div><span class="bar-label">${d.label}</span></div>`).join("");
+ document.getElementById("skillProgress").innerHTML=categories.slice(0,5).map(c=>{const s=state.categoryStats[c.name]||{correct:0,total:0},pct=s.total?Math.round(s.correct/s.total*100):0;return `<div class="skill-row"><div class="skill-icon">${c.emoji}</div><div class="skill-info"><strong>${c.name}</strong><div class="progress"><span style="width:${pct}%"></span></div></div><span class="skill-pct">${s.total?pct+"%":"—"}</span></div>`}).join("");
+ document.getElementById("continueTitle").textContent=state.history.length?state.history[0].title:"Everyday English: Quick Check";document.getElementById("continueSub").textContent=state.history.length?`${state.history[0].category} · Last score ${state.history[0].score}% · Try again to improve`:"8 questions · Mixed skills · Beginner";
+}
+function renderProgress(){
+ const done=Object.keys(state.completed).length,best=state.history.length?Math.max(...state.history.map(h=>h.score)):null;document.getElementById("progCompletion").textContent=Math.round(done/allExams.length*100)+"%";document.getElementById("progBest").textContent=best===null?"—":best+"%";document.getElementById("progQuestions").textContent=state.totalQuestions;document.getElementById("progSaved").textContent=state.saved.length;
+ const el=document.getElementById("historyList");el.innerHTML=state.history.length?state.history.slice(0,15).map(h=>`<div class="setting-row"><div><strong>${esc(h.title)}</strong><small>${esc(h.category)} · ${new Date(h.date).toLocaleString()}</small></div><span class="tag" style="background:${h.score>=70?"#e3f8ee":"#fff0d9"};color:${h.score>=70?"#14845d":"#96631c"}">${h.score}% · ${h.correct}/${h.total}</span></div>`).join(""):'<div class="empty">Your completed exams will appear here.</div>';
+}
+function saveSettings(){state.name=document.getElementById("nameInput").value.trim()||"Learner";state.goal=Number(document.getElementById("goalSelect").value)||10;saveState();renderDashboard();toast("Settings saved on this device.")}
+function exportData(){const blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),state},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lexilearn-backup.json";a.click();URL.revokeObjectURL(a.href);toast("Backup exported")}
+function importData(event){const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const parsed=JSON.parse(reader.result),incoming=parsed.state||parsed;if(!incoming||typeof incoming!=="object"||!incoming.completed||!Array.isArray(incoming.history))throw Error("Invalid backup");state={...freshState(),...incoming};saveState();renderDashboard();renderProgress();renderSaved();toast("Backup imported")}catch(e){toast("That backup file could not be read.")}event.target.value=""};reader.readAsText(file)}
+function resetData(){if(confirm("Delete all saved progress, settings, and exam history from this browser? This cannot be undone unless you exported a backup.")){state=freshState();saveState();renderDashboard();renderProgress();renderSaved();toast("Local progress reset.")}}
+document.getElementById("examSearch").addEventListener("input",renderExamGrid);document.getElementById("difficultySelect").addEventListener("change",renderExamGrid);
+renderDashboard();renderFilters();renderExamGrid();renderProgress();renderSaved();
+</script>
+</body>
+</html>
